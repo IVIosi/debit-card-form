@@ -11,9 +11,32 @@ export default function App(params) {
     expirationMonth: '12',
     expirationYear: '21',
   });
-  const [focusedField, setFocusedField] = useState("");
+  const [focusedField, setFocusedField] = useState('');
+  const isFieldValueValid = (value, fieldName) => {
+    switch (fieldName) {
+      case 'number':
+        if (value.length > 16) {
+          return false;
+        }
+        return true;
+      case 'expirationMonth':
+        if (value.length > 2) {
+          return false;
+        }
+        return true;
+      case 'expirationYear':
+        if (value.length > 2) {
+          return false;
+        }
+        return true;
+      default:
+        return true;
+    }
+  };
   const handleCardInfoChange = (e, fieldName) => {
-    setCard({ ...card, [fieldName]: e.target.value });
+    if (isFieldValueValid(e.target.value, fieldName)) {
+      setCard({ ...card, [fieldName]: e.target.value });
+    }
   };
 
   const fieldRefs = {};
@@ -24,6 +47,7 @@ export default function App(params) {
   const handleFocus = (fieldName) => {
     fieldRefs[fieldName].current.focus();
   };
+  console.log(fieldRefs);
 
   return (
     <div>
@@ -37,6 +61,7 @@ export default function App(params) {
           <Input
             key={fieldName}
             name={fieldName}
+            isNumber={fieldName !== 'holderName'}
             ref={fieldRefs[fieldName]}
             onChange={(e) => handleCardInfoChange(e, fieldName)}
             value={card[fieldName]}

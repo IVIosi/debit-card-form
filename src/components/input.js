@@ -1,7 +1,7 @@
 import React, { useRef, forwardRef, useImperativeHandle } from 'react';
 
 function Input(
-  { name, label, placeholder, value, onChange, onFocus },
+  { name, isNumber, label, placeholder, value, onChange, onFocus },
   ref,
 ) {
   const inputRef = useRef();
@@ -15,6 +15,7 @@ function Input(
     <>
       <label htmlFor={name}>{label}</label>
       <input
+        type={isNumber && 'number'}
         ref={inputRef}
         name={name}
         aria-label={label}
