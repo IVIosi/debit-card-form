@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { chunk } from '../helpers';
 import ShetabLogo from '../static/shetab.png';
 import PasargadLogo from '../static/pasargad.png';
 
@@ -23,12 +24,9 @@ export default function CardView({ cardInfo, focusOnInput, focusedField }) {
           )}
           onClick={() => focusOnInput('number')}
         >
-          {number
-            .padEnd(16, '#')
-            .match(/(.{1,4})/g)
-            .map((part) => (
-              <span key={part}>{part}</span>
-            ))}
+          {chunk(number.padEnd(16, '#'), 4).map((part, index) => (
+            <span key={index}>{part}</span>
+          ))}
         </div>
         <div className="card-view--front__bottom">
           <div
@@ -42,12 +40,18 @@ export default function CardView({ cardInfo, focusOnInput, focusedField }) {
           </div>
           <div
             className={'card-view--front__info'.concat(
-              focusedField === 'expirationMonth' ? ' focused' : '',
+              focusedField === 'expirationMonth' ||
+              focusedField === 'expirationYear'
+                ? ' focused'
+                : '',
             )}
             onClick={() => focusOnInput('expirationMonth')}
           >
-            <label htmlFor="expirationMonth">Expires at</label>
-            <span>{`${expirationMonth}/${expirationYear}`}</span>
+            <label htmlFor="expirationMonth">Expiration Date</label>
+            <span>{`${expirationYear.padEnd(2, 'y')}/${expirationMonth.padEnd(
+              2,
+              'm',
+            )}`}</span>
           </div>
         </div>
       </div>
