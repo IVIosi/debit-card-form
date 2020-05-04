@@ -1,0 +1,81 @@
+.card-view {
+  position: relative;
+  margin: 0 auto;
+  height: 100%;
+  max-width: 400px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 20px 60px 0 rgba(14, 42, 90, 0.55);
+
+  background: url("https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/14.jpeg");
+
+  &--front {
+    &__top {
+      display: flex;
+      justify-content: space-between;
+    }
+    &__number {
+      position: relative;
+      display: flex;
+      justify-content: space-around;
+      font-size: 1.8em;
+      font-weight: bold;
+      margin: 30px 0;
+      cursor: pointer;
+      &:focus {
+        border: 1px solid white;
+        border-radius: 5px;
+      }
+    }
+    &__bottom {
+      display: flex;
+      justify-content: space-between;
+    }
+    &__info {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      &--holder {
+        flex-grow: 1;
+        margin-right: 20px;
+      }
+      & label {
+        font-size: 0.8em;
+      }
+      & span {
+        font-size: 1.5em;
+      }
+    }
+    &__shetab-logo {
+      width: 70px;
+    }
+    &__bank-logo {
+      width: 80px;
+      & img {
+        max-height: 80px;
+      }
+    }
+  }
+
+  & .focused{ &:after {
+      position: absolute;
+      content: '';
+      display: block;
+      top: -10px;
+      bottom: -10px;
+      left: -10px;
+      right: -10px;
+      border: 1px solid white;
+      border-radius: 5px;
+  }}
+}
+
+
+img {
+  width: 100%;
+}
+* {
+  &:focus {
+    outline: 5px auto -webkit-focus-ring-color  }
+}
