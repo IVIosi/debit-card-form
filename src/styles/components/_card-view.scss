@@ -7,7 +7,8 @@
   border-radius: 10px;
   box-shadow: 0 20px 60px 0 rgba(14, 42, 90, 0.55);
 
-  background: url("https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/14.jpeg");
+  color: white;
+  background: url('https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/14.jpeg');
 
   &--front {
     &__top {
@@ -22,9 +23,8 @@
       font-weight: bold;
       margin: 30px 0;
       cursor: pointer;
-      &:focus {
-        border: 1px solid white;
-        border-radius: 5px;
+      & > span {
+        z-index: 2;
       }
     }
     &__bottom {
@@ -42,9 +42,11 @@
       }
       & label {
         font-size: 0.8em;
+        z-index: 2;
       }
       & span {
         font-size: 1.5em;
+        z-index: 2;
       }
     }
     &__shetab-logo {
@@ -58,7 +60,10 @@
     }
   }
 
-  & .focused{ &:after {
+  & .focused {
+    &:after {
+      animation-name: focus-border;
+      animation-duration: 0.3s;
       position: absolute;
       content: '';
       display: block;
@@ -66,16 +71,30 @@
       bottom: -10px;
       left: -10px;
       right: -10px;
+      background-color: #08142f;
+      opacity: 0.5;
+      z-index: 1;
       border: 1px solid white;
       border-radius: 5px;
-  }}
+    }
+  }
 }
 
+@keyframes focus-border {
+  from {
+    top: -20px;
+    bottom: -20px;
+    left: -15px;
+    right: -15px;
+  }
+  to {
+    top: -10px;
+    bottom: -10px;
+    left: -10px;
+    right: -10px;
+  }
+}
 
 img {
   width: 100%;
-}
-* {
-  &:focus {
-    outline: 5px auto -webkit-focus-ring-color  }
 }
