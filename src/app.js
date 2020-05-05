@@ -10,7 +10,7 @@ export default function DebitCardForm({ onSubmit }) {
     holderName: '',
     expirationMonth: '',
     expirationYear: '',
-    cvv: ''
+    cvv: '',
   });
   const [focusedField, setFocusedField] = useState('');
   const isFieldValueValid = (value, fieldName) => {
@@ -68,13 +68,11 @@ export default function DebitCardForm({ onSubmit }) {
               onChange={(e) => handleCardInfoChange(e, fieldName)}
               value={card[fieldName]}
               onFocus={setFocusedField}
+              onBlur={() => setFocusedField('')}
             />
           );
         })}
-        <SubmitButton
-          text="Submit"
-          onClick={onSubmit}
-        />
+        <SubmitButton text="Submit" onClick={onSubmit} />
       </div>
     </div>
   );

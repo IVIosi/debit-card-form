@@ -1,7 +1,7 @@
 import React, { useRef, forwardRef, useImperativeHandle } from 'react';
 
 function Input(
-  { name, isNumber, label, placeholder, value, onChange, onFocus },
+  { name, isNumber, label, placeholder, value, onChange, onFocus, onBlur },
   ref,
 ) {
   const inputRef = useRef();
@@ -26,6 +26,7 @@ function Input(
         value={value}
         placeholder={placeholder}
         onFocus={() => onFocus(name)}
+        onBlur={onBlur}
       />
     </div>
   );
