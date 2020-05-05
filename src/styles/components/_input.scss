@@ -12,6 +12,15 @@
     &:focus {
       border-color: #3d9cff;
     }
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    &[type='number'] {
+      -moz-appearance: textfield;
+    }
   }
   &__label {
     font-size: 0.9em;
