@@ -47,7 +47,6 @@ export default function App(params) {
   const handleFocus = (fieldName) => {
     fieldRefs[fieldName].current.focus();
   };
-  console.log(fieldRefs);
 
   return (
     <div>
@@ -56,20 +55,23 @@ export default function App(params) {
         focusOnInput={handleFocus}
         focusedField={focusedField}
       />
-      {Object.keys(card).map((fieldName) => {
-        return (
-          <Input
-            key={fieldName}
-            name={fieldName}
-            isNumber={fieldName !== 'holderName'}
-            ref={fieldRefs[fieldName]}
-            onChange={(e) => handleCardInfoChange(e, fieldName)}
-            value={card[fieldName]}
-            onFocus={setFocusedField}
-          />
-        );
-      })}
-      <SubmitButton />
+      <div className="card-form">
+        {Object.keys(card).map((fieldName) => {
+          return (
+            <Input
+              key={fieldName}
+              name={fieldName}
+              label={fieldName}
+              isNumber={fieldName !== 'holderName'}
+              ref={fieldRefs[fieldName]}
+              onChange={(e) => handleCardInfoChange(e, fieldName)}
+              value={card[fieldName]}
+              onFocus={setFocusedField}
+            />
+          );
+        })}
+        <SubmitButton text="Submit" onClick={() => {console.log(card)}}/>
+      </div>
     </div>
   );
 }
