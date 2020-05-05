@@ -4,12 +4,13 @@ import Input from './components/input';
 import SubmitButton from './components/submit-button';
 import CardView from './components/card-view';
 
-export default function App(params) {
+export default function DebitCardForm({ onSubmit }) {
   const [card, setCard] = useState({
-    number: '5022676712345678',
-    holderName: 'john doe',
-    expirationMonth: '12',
-    expirationYear: '21',
+    number: '',
+    holderName: '',
+    expirationMonth: '',
+    expirationYear: '',
+    cvv: ''
   });
   const [focusedField, setFocusedField] = useState('');
   const isFieldValueValid = (value, fieldName) => {
@@ -70,7 +71,10 @@ export default function App(params) {
             />
           );
         })}
-        <SubmitButton text="Submit" onClick={() => {console.log(card)}}/>
+        <SubmitButton
+          text="Submit"
+          onClick={onSubmit}
+        />
       </div>
     </div>
   );
