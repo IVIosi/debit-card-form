@@ -12,10 +12,13 @@ function Input(
   }));
 
   return (
-    <>
-      <label htmlFor={name}>{label}</label>
+    <div className="field-input">
+      <label className="field-input__label" htmlFor={name}>
+        {label}
+      </label>
       <input
-        type={isNumber && 'number'}
+        className="field-input__input"
+        type={isNumber ? 'number' : 'text'}
         ref={inputRef}
         name={name}
         aria-label={label}
@@ -24,7 +27,7 @@ function Input(
         placeholder={placeholder}
         onFocus={() => onFocus(name)}
       />
-    </>
+    </div>
   );
 }
 
