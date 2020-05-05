@@ -1,0 +1,22 @@
+.field-input {
+  margin-bottom: 20px;
+  &__input {
+    width: 100%;
+    padding: 12px 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+    outline: none;
+    &:hover,
+    &:focus {
+      border-color: #3d9cff;
+    }
+  }
+  &__label {
+    font-size: 0.9em;
+    margin-bottom: 5px;
+    width: 100%;
+    user-select: none;
+  }
+}

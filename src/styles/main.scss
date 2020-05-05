@@ -1,1 +1,16 @@
 @import 'components/card-view.scss';
+@import 'components/input.scss';
+@import 'components/submit-button';
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.card-form {
+  border-radius: 20px;
+  padding: 20px;
+  padding-top: 100px;
+  margin-top: -80px;
+  box-shadow: 0 20px 60px 0 rgba(14, 42, 90, 0.55);
+}
