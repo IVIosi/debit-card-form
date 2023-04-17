@@ -1,6 +1,6 @@
 # debit card form
 
-![](.\debit-card-form.gif)
+![](https://github.com/IVIosi/debit-card-form/blob/master/debit-card-form.gif)
 
 Author: Mostafa Sameti
 
